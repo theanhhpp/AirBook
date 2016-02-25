@@ -1,0 +1,51 @@
+<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					
+					<div class="left-sidebar">
+						<div class="brands_products"><!--brands_products-->
+							<%if current_user.present?%>
+							<% if @cart %>
+								<%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+									<%= render @cart %>
+								<% end %>
+							<% end %>
+							<% end %>
+						</div><!--/brands_products-->
+						<h2>Thể loại</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							<% Genre.all.each do |genre|%>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+											<%=link_to genre.name, genre_path(genre.id)%>
+										</a>
+									</h4>
+								</div>
+															</div>
+							<% end %>
+						</div><!--/category-products-->
+						
+						<div class="brands_products"><!--brands_products-->
+							<h2>Nhà xuất bản</h2>
+							<div class="brands-name">
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="#"> <span class="pull-right">()</span>Nhã Nam</a></li>
+									<li><a href="#"> <span class="pull-right">()</span>NXB Trẻ</a></li>
+									<li><a href="#"> <span class="pull-right">()</span>Alpha Books</a></li>
+								</ul>
+							</div>
+						</div><!--/brands_products-->
+						
+						<div class="price-range"><!--price-range-->
+							<h2>Khoảng giá</h2>
+							<div class="well text-center">
+								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+								 <b class="pull-left">0VND</b> <b class="pull-right">600000VND</b>
+							</div>
+						</div><!--/price-range-->
+					
+					</div>
+				</div>
+			

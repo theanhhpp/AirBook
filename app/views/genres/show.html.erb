@@ -1,0 +1,12 @@
+<% provide :title, @genre.name%>
+<%= render 'home/sidebar'%>
+<div class="col-sm-9 padding-right">
+	<div class="features_items">
+	<%= render partial: 'books/book_area', locals: { books: @books } %>
+	</div>
+</div>
+			</div>
+		</div>
+	</section>
+
+							

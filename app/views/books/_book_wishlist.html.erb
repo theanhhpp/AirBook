@@ -1,0 +1,32 @@
+<div id="books">
+<% @books.each do |book| %>
+	<div class="col-sm-4">
+		<div class="product-image-wrapper">
+			<div class="single-products">
+				<div class="productinfo text-center">
+					<%= image_tag book.image_file_name, :class =>"image-size" %>
+					<p><%=book.title%></p>
+					<p>by <%= book.author%></p>
+				</div>
+				<div class="product-overlay">
+					<div class="overlay-content">
+						<%= link_to book_path(book) do%>
+						<p><%=book.title%></p>
+						<% end %>
+						<h2><%=book.price%></h2>
+						<p>by <%= book.author%></p>
+						<%= button_to 'Add to Cart',line_items_path(book_id: book),remote: true %>
+					</div>
+				</div>
+			</div>
+			<div class="choose">
+				<ul class="nav nav-pills nav-justified">
+				<li><a href=""><i class="fa fa-minus-square"></i>Remove</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<%end%>
+</div>
+
+							

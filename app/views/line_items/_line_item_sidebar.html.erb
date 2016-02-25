@@ -1,0 +1,12 @@
+<% @cart.line_items.each do |item|%>
+	<tr>
+		<% if item == @current_item %>
+			<tr id="current_item">
+		<% else %>
+			<tr>
+		<% end %>
+		<td><%= item.quantity %></td>
+		<td><%= item.book.title %></td>
+		<td><%=(item.total) %></td>
+	</tr>
+<%end%>

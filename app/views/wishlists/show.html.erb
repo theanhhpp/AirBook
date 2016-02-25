@@ -1,0 +1,14 @@
+<%= render 'home/sidebar'%>	
+	<div class="col-sm-9 padding-right">
+		<h2 class="title text-center">YOUR WISHLIST</h2>
+	<%@wishlists.each do |wishlist|%>
+	<%@books=Book.where(id: wishlist.book_id)%>
+	<%= render partial: 'books/book_wishlist', locals: { books: @books } %>
+	<%end%>
+
+
+	</div>
+</div>
+</div>
+</section>
+	

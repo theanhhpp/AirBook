@@ -1,0 +1,49 @@
+<% provide(:title, "Edit user") %>
+<%if current_user.admin?%>
+<div id="wrapper">
+    <div id="page-content-wrapper">
+<div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Users <small>Users Management</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard / <i class="fa fa-users"></i> Users / <%=@user.name%>'s edit page
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+<%end%>
+<section id="cart_items">
+    <div class="container">
+      <%unless  current_user.admin?%>
+      <div class="breadcrumbs">
+              <ol class="breadcrumb">
+                <%= link_to "Home", root_path%> >> Edit user account
+              </ol>
+            </div>
+            <%end%>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <%= form_for(@user) do |f| %>
+            <%= render 'shared/error_messages' %>
+
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+
+            <%= f.label :password_confirmation, "Confirmation" %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+            <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>

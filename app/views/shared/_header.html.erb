@@ -1,0 +1,78 @@
+<header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header_top-->
+		
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+							<%= link_to root_path do%>
+								<h2><%=logo(current_user)%></h2>
+							<% end %>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav">
+								<%if logged_in?	%>
+								<li><%= link_to user_path(current_user) do%><i class="fa fa-user"></i> Tài khoản <%end%></li>
+								<!-- <li><%= link_to wishlist_path do%><i class="fa fa-star"></i> Sản phẩm yêu thích <%end%></li> -->
+								<li><%= link_to cart_path(session[:cart_id]) do%><i class="fa fa-shopping-cart"></i> Giỏ hàng <%end%></li>
+								<li><%= link_to logout_path, method: :delete do%><i class="fa fa-fw fa-power-off"></i> Đăng xuat <%end%></li>
+								<%else%>
+								<li><%= link_to login_path do%><i class="fa fa-lock"></i> Đăng nhập <%end%></li>
+								<% end %>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+	
+		<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><%=link_to root_path do %>Trang chủ<% end %></li>
+								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><%= link_to shop_path do%>Sản phẩm<% end%></li>
+										<li><a href="product-details.html">Thông tin sản phẩm</a></li> 
+										<li><a href="checkout.html">Thanh toán</a></li> 
+										<li><a href="cart.html">Giỏ hàng</a></li> 
+										<li><a href="login.html">Đăng nhập</a></li>  
+                                    </ul>
+                                </li> 
+								<li><%= link_to "#" do%><b style="color:red">HOTLINE: 1900 1234</b><% end %></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Tìm kiếm"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->

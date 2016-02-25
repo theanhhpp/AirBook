@@ -1,0 +1,27 @@
+<% provide(:title, "Edit book") %>
+<section id="cart_items">
+    <div class="container">
+      <div class="breadcrumbs">
+              <ol class="breadcrumb">
+                <%= link_to "Home", root_path%> >> Edit book
+              </ol>
+            </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <%= form_for(@book) do |f| %>
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+            <%= f.label :author %>
+            <%= f.text_field :author, class: 'form-control' %>
+            <%= f.label :price %>
+            <%= f.text_field :price, class: 'form-control' %>
+            <%= f.label :abstract %>
+            <%= f.text_area :abstract, class: 'form-control' %>
+            <%= f.label :genre_id %>
+            <%= f.select :genre_id, Genre.all.collect { |g| [ g.name, g.id ] }, include_blank: true %>
+            <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</section>

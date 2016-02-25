@@ -1,0 +1,19 @@
+<% provide :title, "Checkout"%>
+	<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<ol class="breadcrumb">
+				 <%= link_to "Home", root_path%> >> Checkout
+				</ol>
+			</div><!--/breadcrums-->
+
+				<div class="row">
+						<div class="bill-to">
+							<p>Bill To</p>
+							<div class="form-one">
+								<%= render 'form'%>
+							</div>
+						</div>
+				</div>
+		</div>
+	</section> <!--/#cart_items-->
